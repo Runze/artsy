@@ -3,7 +3,7 @@ library(XML)
 library(ggplot2)
 library(scales)
 
-load(file = 'followers.RData')
+load(file = 'data/followers.RData')
 
 #web crawl names
 link = 'http://www.ssa.gov/cgi-bin/popularnames.cgi'
@@ -47,7 +47,7 @@ for(i in 1:nrow(followers)) {
   followers$gender[i] = match_name(name1[i])
 }
 
-save(followers, file = 'followers_w_gender.RData')
+save(followers, file = 'data/followers_w_gender.RData')
 
 #chart gender distribution
 gender_agg = aggregate(name ~ gender, subset(followers, gender != 'Unknown'), length)
@@ -55,4 +55,4 @@ gender =
   ggplot(gender_agg, aes(x = gender, y = name)) + geom_bar(stat = 'identity', col = '#6baed6', fill = '#6baed6') +
   xlab('Gender') + ylab('Number of Followers') +
   scale_y_continuous(labels = comma)
-ggsave(gender, file = 'gender.jpeg', width = 8, height = 8)
+ggsave(gender, file = 'graph/gender.jpeg', width = 8, height = 8)

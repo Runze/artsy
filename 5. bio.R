@@ -7,7 +7,7 @@ library(plyr)
 library(wordcloud)
 library(skmeans)
 
-load(file = 'followers.RData')
+load(file = 'data/followers.RData')
 
 #analysis bio
 #clean bio
@@ -57,4 +57,4 @@ cluster =
   scale_y_continuous(labels = comma) +
   scale_x_discrete(labels=c('People who love everything', 'Artist', 'Art-lover', 'Creative Professionals\n and Students'))
 
-ggsave(cluster, file = 'cluster.jpeg',width = 8, height = 8)
+ggsave(cluster, file = 'graph/cluster.jpeg',width = 8, height = 8)

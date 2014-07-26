@@ -10,7 +10,7 @@ library(rgdal)
 library(maptools)
 gpclibPermit()
 
-load(file = 'followers.RData')
+load(file = 'data/followers.RData')
 
 #get country names from location
 location = followers$location[followers$location != '']
@@ -34,7 +34,7 @@ geo_map = function(addr){
 
 #note it takes a long time to retrieve all the standardized country names
 country_name = unlist(lapply(location, geo_map))
-save(country_name, file = 'country_name.RData')
+save(country_name, file = 'data/country_name.RData')
 
 #remove blank country names (i.e., those that were not found)
 country_name = country_name[country_name != '']
@@ -85,4 +85,4 @@ heatmap =
   ggtitle('Geographic Distribution of Followers\n') + 
   theme(plot.title = element_text(size = rel(1.5), face = 'bold'), legend.position = 'bottom')
 
-ggsave(filename = 'heatmap.jpeg', plot = heatmap, width = 40, height = 40, unit = 'cm')
+ggsave(filename = 'graph/heatmap.jpeg', plot = heatmap, width = 40, height = 40, unit = 'cm')

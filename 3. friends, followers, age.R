@@ -2,7 +2,7 @@ setwd('/Users/Runze/Github/artsy')
 library(ggplot2)
 library(scales)
 
-load(file = 'followers.RData')
+load(file = 'data/followers.RData')
 
 #analyze followers' friends and followers counts
 friends_hist =
@@ -15,7 +15,7 @@ friends_hist =
   ggtitle('Histogram of Followers\' Friends\n') + 
   theme(plot.title = element_text(size = rel(1.5), face = 'bold'), legend.position = 'bottom')
    
-ggsave(filename = 'friends.jpeg', plot = friends_hist, width = 8, height = 8)
+ggsave(filename = 'graph/friends.jpeg', plot = friends_hist, width = 8, height = 8)
 
 followers_hist = 
   ggplot(followers, aes(x = as.numeric(followers_count), y = ..density..)) +
@@ -27,7 +27,7 @@ followers_hist =
   ggtitle('Histogram of Followers\' Followers\n') + 
   theme(plot.title = element_text(size = rel(1.5), face = 'bold'), legend.position = 'bottom')
 
-ggsave(filename = 'followers.jpeg', plot = followers_hist, width = 8, height = 8)
+ggsave(filename = 'graph/followers.jpeg', plot = followers_hist, width = 8, height = 8)
 
 #analyze followers' twitter ages
 created_at = as.character(followers$created_at)
@@ -47,4 +47,4 @@ age_hist =
   ggtitle('Histogram of Followers\' Twitter Ages\n') + 
   theme(plot.title = element_text(size = rel(1.5), face = 'bold'), legend.position = 'bottom')
         
-ggsave(filename = 'age.jpeg', plot = age_hist, width = 8, height = 8)
+ggsave(filename = 'graph/age.jpeg', plot = age_hist, width = 8, height = 8)

@@ -15,4 +15,4 @@ followers = data.frame(matrix(unlist(follower_profile_sub), nrow = length(follow
 names(followers) = names(follower_profile_sub[[1]])
 followers$location = as.character(followers$location)
 
-save(followers, file = 'followers.RData')
+save(followers, file = 'data/followers.RData')
