@@ -1,4 +1,5 @@
 setwd('/Users/Runze/Github/artsy')
+library(rjson)
 library(plyr)
 library(ggplot2)
 library(scales)
